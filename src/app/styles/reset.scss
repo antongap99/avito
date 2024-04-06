@@ -1,0 +1,13 @@
+*, *:after, *:before {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  box-sizing: border-box;
+  height: 100vh;
+}
+
+a, a:active, a:visited, a:focus-visible {
+  text-decoration: none;
+}

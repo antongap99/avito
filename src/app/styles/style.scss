@@ -1,0 +1,28 @@
+
+.app {
+    font: var(--font-m);
+    background-color: var(--bg-color);
+    min-height: 100vh;
+}
+
+
+.content-page {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.page-wrapper {
+    flex-grow: 1;
+    padding: 12px;
+}
+
+
+.storybook-wrapper {
+    width: 600px;
+    height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font: var(--font-m);
+    background-color: var(--bg-color);
+}
