@@ -6,6 +6,7 @@ import { buildWebpackConfig } from './config/build/buildWebpackConfig';
 import { BuildEnv } from './config/build/types/config';
 
 export default (env: BuildEnv) => {
+	console.log('env', env)
     const mode: 'development' | 'production' = env.mode || 'development';
 
     const paths = {
