@@ -5,6 +5,7 @@ export interface BuildPaths {
     build: string, // path to dist dir
     html: string, // path to template
     src: string,
+	env: string
 }
 export interface BuildOptions {
     mode: BuildMode,

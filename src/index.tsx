@@ -6,6 +6,7 @@ import { StoreProvider } from 'app/providers/storeProvider/ui/StoreProvider';
 import App from './app/App';
 
 const root = createRoot(document.getElementById('root') as HTMLElement);
+
 root.render(
     <BrowserRouter basename="/">
         <ErrorBoundary>

@@ -4,6 +4,10 @@ import MiniCssExtractPlugin, { PluginOptions } from 'mini-css-extract-plugin';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import { BuildOptions } from './types/config';
+import path from "path";
+const dotenv = require('dotenv').config( {
+	path: path.join(__dirname, '..', '..', '.env')
+} );
 
 export const buildPlugins = ({ paths, isDev }: BuildOptions):webpack.WebpackPluginInstance[] => {
     const plugins = [
@@ -20,7 +24,9 @@ export const buildPlugins = ({ paths, isDev }: BuildOptions):webpack.WebpackPlug
         } as PluginOptions),
         new webpack.DefinePlugin({
             __IS_DEV__: JSON.stringify(isDev),
+	        "process.env": JSON.stringify(dotenv.parsed)
         }),
+
     ];
 
     isDev && plugins.push(new ReactRefreshWebpackPlugin());

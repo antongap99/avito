@@ -1,12 +1,9 @@
 import path from 'path';
 import webpack from 'webpack';
-// eslint-disable-next-line import/no-unresolved
 import { buildWebpackConfig } from './config/build/buildWebpackConfig';
-// eslint-disable-next-line import/no-unresolved
 import { BuildEnv } from './config/build/types/config';
 
 export default (env: BuildEnv) => {
-	console.log('env', env)
     const mode: 'development' | 'production' = env.mode || 'development';
 
     const paths = {
@@ -14,6 +11,7 @@ export default (env: BuildEnv) => {
         build: path.resolve(__dirname, 'dist'),
         html: path.resolve(__dirname, 'public', 'index.html'),
         src: path.resolve(__dirname, 'src'),
+	    env: path.resolve(__dirname, '.env')
     };
     const port = env.port || 3000;
     const isDev = mode === 'development';
