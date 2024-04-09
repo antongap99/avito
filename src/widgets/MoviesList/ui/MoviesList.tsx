@@ -11,6 +11,7 @@ interface  MoviesListProps {
 }
 
 export const MoviesList = ({className}: MoviesListProps) =>{
+	// TODO добавить хук
 	const [movies, setMovies] = useState([])
 	const dispatch = useAppDispatch()
 
