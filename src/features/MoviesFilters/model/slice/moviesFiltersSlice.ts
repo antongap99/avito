@@ -33,6 +33,7 @@ export const moviesFiltersSlice = createSlice({
 		clearCountryFilter(state){
 			state.countryFilter = null
 		},
+		// FIXME переместить в moviesPaginations
 		setPage(state, action: PayloadAction<number>){
 			state.page = action.payload
 		},

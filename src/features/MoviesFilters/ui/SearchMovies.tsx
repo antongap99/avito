@@ -1,13 +1,11 @@
-import cn from "classnames";
 import style from './SearchMovies.module.scss'
 import {ChangeEvent, useState} from "react";
-import {moviesFiltersActions} from "features/MoviesFilters";
 import {useAppDispatch} from "app/providers/storeProvider/config/hooks/hooks";
-import SearchIcon from 'shared/assets/icons/Search.svg?react'
+import SearchIcon from 'shared/assets/icons/Search.svg'
+import {Button, ButtonTheme} from "shared/ui/Button/Button";
 
-interface  SearchMoviesProps {
+interface SearchMoviesProps {
     className?: string;
-
 }
 
 export const SearchMovies = ({className}: SearchMoviesProps) =>{
@@ -20,20 +18,22 @@ export const SearchMovies = ({className}: SearchMoviesProps) =>{
 	};
 
 
-
-
 	return  (
-	    <div style={{ display: 'flex', alignItems: 'center' }}>
+	    <div className={style.MoviesSearch}>
 		    <input
 			    type="text"
 			    value={searchTerm}
 			    onChange={handleSearchChange}
 			    placeholder="Поиск по названию фильма"
-			    style={{ padding: '8px', marginRight: '8px', borderRadius: '5px', border: '1px solid #ccc' }}
+			    className={style.MoviesSearchInput}
 		    />
-		    <button type="submit" style={{ padding: '8px', borderRadius: '5px', border: '1px solid #ccc', cursor: 'pointer' }}>
-			    <SearchIcon style={{ width: '20px', height: '20px' }} />
-		    </button>
+		    <Button
+			    theme={ButtonTheme.OUTLINE}
+			    type="submit"
+			    style={{backgroundColor: "transparent"}}
+		    >
+			    <SearchIcon />
+		    </Button>
 	    </div>
     )
 }

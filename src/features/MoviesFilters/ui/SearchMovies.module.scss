@@ -1,0 +1,15 @@
+.MoviesSearch {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  width: 100%;
+  padding: 0 16px;
+}
+
+.MoviesSearchInput {
+  padding: 8px;
+  margin-right: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 90%;
+}

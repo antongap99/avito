@@ -13,39 +13,4 @@
     font-size: 20px;
     margin-bottom: 10px;
   }
-
-  .filterGroup {
-    margin-bottom: 15px;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-
-    .filterLabel {
-      display: block;
-      margin-bottom: 5px;
-      font-weight: bold;
-    }
-
-    .filterInput {
-      width: 100%;
-      padding: 8px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      font-size: 16px;
-    }
-
-    .clearButton {
-      padding: 8px 12px;
-      background-color: #fff;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      font-size: 16px;
-      cursor: pointer;
-      max-width: 100px;
-
-      &:hover {
-        background-color: #f0f0f0;
-      }
-    }
-  }
 }
