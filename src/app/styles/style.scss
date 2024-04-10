@@ -29,6 +29,8 @@
 
   display: flex;
   flex-direction: row-reverse;
+  width: calc(100vw - var(--sidebar-width-collapsed));
+  margin-left: var(--sidebar-width-collapsed);
 }
 
 
@@ -62,4 +64,12 @@
 .page-wrapper {
     padding: 12px;
     width: 100%;
+}
+
+
+@media (max-width: 768px) {
+
+  .content-page {
+    margin: 0;
+  }
 }

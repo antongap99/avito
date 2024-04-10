@@ -6,6 +6,7 @@ import {Loader} from "shared/ui/Loader/Loader";
 import {useAppSelector} from "app/providers/storeProvider/config/hooks/hooks";
 import {getFilterMoviesParams} from "features/MoviesFilters/model/selectors/getFilterMovies";
 import {SearchMovies} from "features/MoviesFilters";
+import { useNavigate } from "react-router-dom";
 
 interface  MoviesListProps {
     className?: string;
@@ -13,7 +14,8 @@ interface  MoviesListProps {
 
 export const MoviesList = ({className}: MoviesListProps) =>{
 	const params = useAppSelector(getFilterMoviesParams)
-	const {movies, loading, error} = useMovies(params)
+	const {movies, loading, error} = useMovies(params);
+	const navigate = useNavigate()
 
 	if(loading) return (
 		<div>
@@ -30,7 +32,7 @@ export const MoviesList = ({className}: MoviesListProps) =>{
 					{
 						movies.map(movie => {
 							return (
-								<div key={movie.id}>
+								<div key={movie.id} onClick={() => navigate(`/movie/${movie.id}`)}>
 									<Card
 										hoverable
 										style={{ width: 240 }}
@@ -41,6 +43,7 @@ export const MoviesList = ({className}: MoviesListProps) =>{
 												style={{maxHeight: 250, minHeight: 250 }}
 											/>
 										}
+
 									>
 										<div className={style.movieContent}>
 											<h3 className={style.MovieTitle}>{movie.name}</h3>

@@ -4,14 +4,14 @@ import {useParams} from "react-router-dom";
 
 interface  MoviePageProps {
     className?: string;
-
 }
 
 const MoviePage = ({className}: MoviePageProps) =>{
-	const {moveId} = useParams()
+	const {movieId} = useParams()
+
     return  (
         <div className={cn(style.MoviePage)}>
-
+	        Фильм с id: {movieId}
         </div>
     )
 }
