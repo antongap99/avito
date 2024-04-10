@@ -3,7 +3,7 @@ import {MoviesList} from "widgets/MoviesList/ui/MoviesList";
 
 function MainPage() {
     return (
-        <div >
+		<div style={{minHeight: '80vh'}}>
             <MoviesList/>
         </div>
     );

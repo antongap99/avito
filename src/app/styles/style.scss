@@ -10,51 +10,56 @@
 }
 .app-layout {
   height: 100vh;
-  background-color: #f0f2f5; // Цвет фона для всего приложения
+  background-color: #f0f2f5;
+
+  .ant-layout-sidbar {
+    background-color: #001529;
+    color: #fff;
+    width: 200px;
+    z-index: 2;
+    position: absolute;
+    height: 100vh;
+  }
 }
 
 .content-page {
-  padding: 20px;
-  background-color: #fff; // Цвет фона для основного контента
+  background-color: #fff;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  margin: 20px;
+
+  display: flex;
+  flex-direction: row-reverse;
 }
 
-.ant-layout-sidbar {
-  background-color: #001529;
-  color: #fff;
+
+
+.ant-layout-sidbar.sidbar-mobile {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  opacity: 1;
+  visibility: visible;
+  width: 100vw;
 }
 
-.ant-layout-header {
-  background-color: #001529;
-  color: #fff;
-  padding: 0 20px;
-  font-size: 18px;
+.ant-layout-sidbar.sidbar-mobile-collapsed {
+  opacity: 0;
+  visibility: hidden;
 }
+
+
 
 .ant-layout-content {
   padding: 20px;
-  background-color: #fff; //
-}
-
-.content-page {
-    display: flex;
-    flex-direction: row-reverse;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
 }
 
 .page-wrapper {
-    flex-grow: 1;
     padding: 12px;
-}
-
-
-.storybook-wrapper {
-    width: 600px;
-    height: 600px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font: var(--font-m);
-    background-color: var(--bg-color);
+    width: 100%;
 }

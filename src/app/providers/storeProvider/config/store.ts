@@ -1,9 +1,13 @@
 import {combineReducers, configureStore} from '@reduxjs/toolkit';
 import { StateSchema } from 'app/providers/storeProvider/config/StateSchema';
 import {loginReducer} from "features/UserAuthorization";
+import {moviesReducer } from "widgets/MoviesList";
+import {moviesFiltersReducer} from "features/MoviesFilters";
 
 const rootReducer = combineReducers({
 	loginForm: loginReducer,
+	moviesList: moviesReducer,
+	moviesFilters: moviesFiltersReducer,
 });
 
 export function createReduxStore(initialState?: StateSchema) {

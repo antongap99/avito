@@ -1,3 +1,69 @@
-.MoviesList {
+.MoviesListWrapper {
+  max-height: 85vh;
+  overflow-y: auto;
+  padding: 0 16px;
 
+  .MoviesList {
+    display: grid;
+    grid-template-columns: repeat(5, 250px);
+    gap: 16px;
+  }
+}
+
+.movieContent {
+  max-height: 300px;
+  min-height: 300px;
+
+  .MovieTitle {
+    margin: 0 10px;
+  }
+
+  .MovieDescription {
+    max-height: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+  }
+}
+
+
+
+@media (max-width: 1500px) {
+  .MoviesListWrapper {
+    .MoviesList {
+      grid-template-columns: repeat(4, 250px); // Изменено на grid
+      justify-content: center;
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .MoviesListWrapper {
+    .MoviesList {
+      grid-template-columns: repeat(3, 250px); // Изменено на grid
+    }
+  }
+}
+
+
+
+
+
+@media (max-width: 1000px) {
+  .MoviesListWrapper {
+    .MoviesList {
+      grid-template-columns: repeat(2, 250px); // Изменено на grid
+      justify-content: center;
+    }
+  }
+}
+@media (max-width: 600px) {
+  .MoviesListWrapper {
+    .MoviesList {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  }
 }
