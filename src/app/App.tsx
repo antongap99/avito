@@ -1,19 +1,59 @@
 import './styles/index.scss';
 import cn from 'classnames';
 import { AppRouter } from 'app/providers/router';
-import { Layout, Flex } from 'antd';
+import {Layout} from 'antd';
+import {useEffect, useState} from "react";
+import {Header} from "widgets/Header";
+import {SideBarContent} from "widgets/SideBarContent";
 
-const { Header, Footer, Sider, Content } = Layout;
+const { Sider, Content } = Layout;
 const App = () => {
-	console.log(`${process.env.BASE_URL}`);
+	const [collapsed, setCollapsed] = useState(true);
+	const [mobile, setMobile] = useState(false);
+
+	useEffect(() => {
+		const handleResize = () => {
+			setMobile(window.innerWidth < 768);
+		};
+
+		handleResize();
+
+		window.addEventListener('resize', handleResize);
+
+		return () => {
+			window.removeEventListener('resize', handleResize);
+		};
+	}, []);
+
+	const toggleCollapsed = () => {
+		setCollapsed(!collapsed);
+	};
+
 	return (
 		<div className={cn('app')}>
 			<Layout className='app-layout'>
-				<Sider width="25%" className='ant-layout-sidbar'>
-					Sider
+				<Sider
+					collapsible
+					collapsed={collapsed}
+					onCollapse={toggleCollapsed}
+					width={mobile ? '100vw': 400}
+					className={cn(
+						'ant-layout-sidbar',
+						{
+							'sidbar-mobile': mobile,
+							'sidbar-mobile-collapsed': mobile && collapsed,
+						}
+					)}
+
+				>
+					{!collapsed &&<SideBarContent/>}
 				</Sider>
 				<Layout>
-					<Header className='ant-layout-header'>Авито. Тестовое задание</Header>
+					<Header
+						mobile={mobile}
+						toggleCollapsed={toggleCollapsed}
+						collapsed={collapsed}
+					/>
 					<Content className='ant-layout-content'>
 						<div className="content-page">
 							<AppRouter/>
